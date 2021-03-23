@@ -30,8 +30,12 @@
 export default {
 	name: "Buttons",
 	props: {
-		filter: Function,
 		activeButton: String,
+	},
+	methods: {
+		filter(e) {
+			this.$emit("filter", e)
+		},
 	},
 }
 </script>

@@ -1,16 +1,15 @@
 <template>
 	<Header />
-	<Buttons :filter="filter" :activeButton="activeButton" />
+	<Buttons @filter="filter" :activeButton="activeButton" />
 	<PatientsList :patients="patients" :currentPatients="currentPatients" />
-	<button @click="scrollToTop" class="top">
-		<i class="fas fa-arrow-up"></i>
-	</button>
+	<ScrollToTop @scroll-to-top="scrollToTop" />
 </template>
 
 <script>
 import Header from "./components/Header.vue"
 import Buttons from "./components/Buttons.vue"
 import PatientsList from "./components/PatientsList.vue"
+import ScrollToTop from "./components/ScrollToTop.vue"
 
 export default {
 	name: "App",
@@ -18,6 +17,7 @@ export default {
 		Header,
 		Buttons,
 		PatientsList,
+		ScrollToTop,
 	},
 	data() {
 		return {
@@ -88,26 +88,5 @@ body {
 		"Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-}
-.top {
-	position: fixed;
-	bottom: 15px;
-	right: 15px;
-	width: 40px;
-	height: 40px;
-	border: none;
-	background: #a809ae;
-	color: #fff;
-	transition: 0.3s;
-	outline: none;
-	cursor: pointer;
-}
-
-/* .top:hover {
-	transform: scale(1.1);
-} */
-
-.fas {
-	font-size: 20px;
 }
 </style>
