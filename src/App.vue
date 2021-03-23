@@ -65,9 +65,6 @@ export default {
 					this.currentPatients = this.patients
 			}
 		},
-		changeCurrentPage(newPage) {
-			this.currentPage = newPage
-		},
 		scrollToTop() {
 			window.scrollTo({ top: 0, behavior: "smooth" })
 		},

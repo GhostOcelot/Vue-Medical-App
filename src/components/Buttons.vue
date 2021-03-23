@@ -2,8 +2,7 @@
 	<div class="filter-btn-container">
 		<button
 			@click="filter"
-			class="filter-btn"
-			:class="activeButton === 'all' ? 'active' : null"
+			:class="[activeButton === 'all' ? 'active' : null, 'filter-btn']"
 			name="all"
 		>
 			All Patients
@@ -11,8 +10,7 @@
 
 		<button
 			@click="filter"
-			class="filter-btn"
-			:class="activeButton === 'over-30' ? 'active' : null"
+			:class="[activeButton === 'over-30' ? 'active' : null, 'filter-btn']"
 			name="over-30"
 		>
 			30 years old +
@@ -20,8 +18,7 @@
 
 		<button
 			@click="filter"
-			class="filter-btn"
-			:class="activeButton === 'men' ? 'active' : null"
+			:class="[activeButton === 'men' ? 'active' : null, 'filter-btn']"
 			name="men"
 		>
 			Men only
