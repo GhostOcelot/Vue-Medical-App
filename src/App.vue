@@ -70,8 +70,11 @@ export default {
 		},
 		search(e) {
 			this.currentPatients = this.patients.filter(patient =>
-				patient.patientData.fullName.toLowerCase().includes(e.target.value.toLowerCase())
+				patient.patientData.fullName
+					.toLowerCase()
+					.includes(e.target["search-bar"].value.toLowerCase())
 			)
+			e.target.reset()
 		},
 		scrollToTop() {
 			window.scrollTo({ top: 0, behavior: "smooth" })

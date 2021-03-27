@@ -31,6 +31,7 @@ export default {
 	name: "Buttons",
 	props: {
 		activeButton: String,
+		searchPhrase: String,
 	},
 	methods: {
 		filter(e) {

@@ -1,23 +1,20 @@
 <template>
 	<div class="search-bar-container">
-		<div class="search-bar-wrapper">
-			<!-- <label for="search-bar">Search for patient:</label> -->
-			<input
-				@input="e => search(e)"
-				type="text"
-				id="search-bar"
-				class="search-bar"
-				placeholder="search..."
-			/>
-			<i class="fas fa-search fa-lg"></i>
-		</div>
+		<form class="search-bar-wrapper" @submit.prevent="search">
+			<input type="text" id="search-bar" class="search-bar" placeholder="search..." />
+			<button class="search-btn">
+				<i class="fas fa-search fa-lg"></i>
+			</button>
+		</form>
 	</div>
 </template>
 
 <script>
 export default {
 	name: "SearchBar",
-
+	props: {
+		searchPhrase: String,
+	},
 	methods: {
 		search(e) {
 			this.$emit("search", e)
@@ -36,8 +33,7 @@ export default {
 .search-bar-wrapper {
 	width: 500px;
 	max-width: 100%;
-	background: #fff;
-	margin-bottom: 10px;
+	margin: 40px 0 20px 0;
 	display: flex;
 	align-items: center;
 }
@@ -48,8 +44,18 @@ export default {
 	width: 95%;
 }
 
-.search-bar:focus {
+.search-bar:focus,
+.search-btn:focus {
 	outline: thin dotted;
+}
+
+.search-btn {
+	background: #fff;
+	box-sizing: border-box;
+	height: 100%;
+	border: none;
+	cursor: pointer;
+	margin-left: 10px;
 }
 
 .fas {
