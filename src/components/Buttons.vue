@@ -48,6 +48,7 @@ export default {
 }
 
 .filter-btn {
+	box-sizing: border-box;
 	background: #fff;
 	position: relative;
 	margin: 0 5px;
@@ -55,8 +56,11 @@ export default {
 	height: 50px;
 	border: none;
 	border-bottom: 10px solid #fcd1fd;
-	outline: none;
 	cursor: pointer;
+}
+
+.filter-btn:focus {
+	outline: thin dotted;
 }
 
 .filter-btn.active {

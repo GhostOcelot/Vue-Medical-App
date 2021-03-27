@@ -26,8 +26,11 @@ export default {
 	background: #a809ae;
 	color: #fff;
 	transition: 0.3s;
-	outline: none;
 	cursor: pointer;
+}
+
+.top:focus {
+	outline: thin dotted;
 }
 
 .fas {

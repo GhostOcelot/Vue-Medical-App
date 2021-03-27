@@ -1,6 +1,7 @@
 <template>
 	<Header />
 	<Buttons @filter="filter" :activeButton="activeButton" />
+	<SearchBar @search="search" />
 	<PatientsList :patients="patients" :currentPatients="currentPatients" />
 	<ScrollToTop @scroll-to-top="scrollToTop" />
 </template>
@@ -10,6 +11,7 @@ import Header from "./components/Header.vue"
 import Buttons from "./components/Buttons.vue"
 import PatientsList from "./components/PatientsList.vue"
 import ScrollToTop from "./components/ScrollToTop.vue"
+import SearchBar from "./components/SearchBar.vue"
 
 export default {
 	name: "App",
@@ -18,6 +20,7 @@ export default {
 		Buttons,
 		PatientsList,
 		ScrollToTop,
+		SearchBar,
 	},
 	data() {
 		return {
@@ -41,7 +44,7 @@ export default {
 					}
 				})
 				patientsWithMedications.push({
-					patientData: patient,
+					patientData: { ...patient, fullName: `${patient.name} ${patient.lastName}` },
 					patientMedications: patientMedications,
 				})
 			})
@@ -64,6 +67,11 @@ export default {
 				default:
 					this.currentPatients = this.patients
 			}
+		},
+		search(e) {
+			this.currentPatients = this.patients.filter(patient =>
+				patient.patientData.fullName.toLowerCase().includes(e.target.value.toLowerCase())
+			)
 		},
 		scrollToTop() {
 			window.scrollTo({ top: 0, behavior: "smooth" })
